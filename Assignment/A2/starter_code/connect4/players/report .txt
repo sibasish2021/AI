@@ -1,0 +1,29 @@
+ Team Members: - 
+
+1)Ankit Raushan (2020CS10324)  
+2)Sibasish Rout(2020CS10386) 
+
+Part 1 (get_expectimax_move) :
+
+Algorithm: - 
+
+Our algorithm utilised expectimax tree search with self adjusting depth according to time left for best utilisation of time and optimum result.
+Functions used by us to implement algorithms are –
+1) is_terminal : This function takes present state and player number as arguments and return true if the game has reached its terminal state otherwise it returns false.
+2) update_board : This function takes state, player action and player number as arguments and return the updated board taking into account the action performed by the player. This function handles both popout and insert action.
+3) expect_utility : This function takes state, depth  and time left as the arguments and return the expected utility value. Since the opponent is random we have assumed that action taken by opponent is totally random (eqiprobable). So, for a state we calculated total score and divided it by number of   actions available to get at the expected value.
+So. our algorithm basically is taking into account all the possible random moves of the random agent and find out utility of each possible  move and finally takes the move which  outputs the maximum expected utility.
+Handling time out –
+We have devised self adjusting depth for proper utilisation of time allotted. We divided the allotted time equally into all the branches and if the time left out is less than  0.0001  second we store the utiity value and finally takes the move which provides maximum utility. We have set 0.0001 sec as limit after a lot of testing as this was giving the optimal solution.
+
+Part 2 (get_intelligent_move) :
+
+Our algorithm utilised minmax cut-off tree with alpha-beta pruning .We used difference in the players score as the heuristic and we have devised self-adjusting depth according to the time out. After applying alpha beta pruning we were able to go to depths of about 4 -5 in large boards and 6-7 in small boards.
+Functions used by us to implement this algorithm are –
+1) max_value : This function returns maximum of all its successor which are min nodes. This helps us in finding the best move.
+2) min_value : This function returns minimum of all its successors which are max nodes.
+Time out handled is same as in get_expectimax_move.
+
+Credit – We have taken implementation and algorithm ideas from AIMA github page.
+
+
